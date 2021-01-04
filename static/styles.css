@@ -1,0 +1,833 @@
+html{
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: blue;
+}
+
+/*preloader */
+.loader-wrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #242f3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483647;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px; /* just change this value to resize a bird */
+    background-color: var(--color-bg-first);
+  }
+  
+  .bird {
+    position: relative;
+    flex: 0 0 3em;
+    width: 3em;
+    height: 3em;
+  }
+  
+  .bird_part {
+    position: absolute;
+    animation: 2.75s ease-in-out .5s infinite;
+  }
+  
+  .bird_part--head,
+  .bird_part--neck,
+  .bird_part--beak {
+    width: 1em;
+    height: 1em;
+  }
+  
+  .bird_part--eye,
+  .bird_part--tongue {
+    width: .5em;
+    height: .5em;
+  }
+  
+  .bird_part--hair {
+    width: 1.5em;
+    height: 3em;
+    /*background: repeating-linear-gradient(115deg, #C84326, #6F2118 3px);*/
+    background: #652C21;
+    border-top-left-radius: 3em;
+    border-bottom-left-radius: 3em;
+    animation-name: bird-hair;
+    transform-origin: 100% 50%;
+  }
+  
+  .bird_part--head {
+    right: 50%;
+    bottom: 50%;
+    background-color: #fff;
+    border-top-left-radius: 1em;
+    animation-name: bird-head;
+    transform-origin: 100% 100%;
+  }
+  
+  .bird_part--eye {
+    right: 50%;
+    bottom: 50%;
+    background-color: #19233C;
+    border-radius: 50%;
+    animation-name: bird-eye;
+  }
+  
+  .bird_part--tongue {
+    left: 50%;
+    top: 50%;
+    background-color: #EDA73B;
+    border-bottom-right-radius: .5em;
+    animation-name: bird-tongue;
+    transform-origin: 0 0;
+  }
+  
+  .bird_part--beak {
+    left: 50%;
+    bottom: 50%;
+    background-color: #F2CE5D;
+    border-top-right-radius: 1em;
+    animation-name: bird-beak;
+    transform-origin: 0 100%;
+  }
+  
+  .bird_part--neck {
+    right: 50%;
+    top: 50%;
+    background-color: #E7E7E7;
+    border-bottom-left-radius: 1em;
+    animation-name: bird-neck;
+    transform-origin: 100% 0;
+  }
+  
+  
+  @keyframes bird-hair {
+    from {
+      transform: rotate(0);
+    }
+    20% {
+      transform: rotate(180deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    70% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+  
+  @keyframes bird-head {
+    from {
+      transform: rotate(0);
+    }
+    20% {
+      transform: rotate(-270deg);
+    }
+    50% {
+      transform: rotate(-270deg);
+    }
+    70% {
+      transform: rotate(-360deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+  
+  @keyframes bird-eye {
+    from {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(100%);
+    }
+    50% {
+      transform: translate(100%);
+    }
+    70% {
+      transform: translate(0);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  @keyframes bird-beak {
+    from {
+      transform: rotate(0);
+    }
+    20% {
+      transform: rotate(-90deg);
+    }
+    50% {
+      transform: rotate(-90deg);
+    }
+    70% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+  @keyframes bird-tongue {
+    from {
+      transform: rotate(0);
+    }
+    20% {
+      transform: rotate(90deg);
+    }
+    50% {
+      transform: rotate(90deg);
+    }
+    70% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+  
+  @keyframes bird-neck {
+    from {
+      transform: rotate(0);
+    }
+    20% {
+      transform: rotate(-90deg);
+    }
+    50% {
+      transform: rotate(-90deg);
+    }
+    70% {
+      transform: rotate(-360deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+
+/* preloader ends */
+  
+.drop-zone {    
+    cursor: pointer;
+    position: relative;
+}
+    
+/*     .drop-zone--over {
+      border-style: solid;
+    } */
+    
+.drop-zone__input {
+    display: none;
+}
+    
+.drop-zone__thumb {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #cccccc;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+/*       position: relative; */
+}
+    
+.drop-zone__thumb::after {
+	content: attr(data-label);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 5px 0;
+	color: #ffffff;
+	background: rgba(0, 0, 0, 0.75);
+	font-size: 14px;
+	text-align: center;
+} 
+    
+    /* input[type="submit"]{
+      padding: 25px;
+      font-family: "Quicksand", sans-serif;
+      font-weight: 500;
+      font-size: 25px;
+      height: 75px;
+      width: 200px;
+      border-radius: 10px;
+      border: 4px #000;
+    } */
+  
+body {
+    margin: 0;
+    color: whitesmoke;
+    overflow-x: hidden;
+    font-family: 'Yrsa', serif;
+}
+.everything {
+    background: url('eagle-reverse.png');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.main {
+    max-width: 100vw;
+    height: 100vh;
+}
+#landing {
+    /* max-width: 100vw;
+    height: 100vh; */
+    position: relative;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+.logo {
+    margin: 20px;
+}
+.logo img{
+    width: 100px;
+    height: 100px;
+}
+#navbar-ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+.navbar ul li {
+    list-style: none;
+    margin: 20px 5vw;
+    font-size: 22px;
+    text-decoration: none;
+    padding: 5px;
+}
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+.navbar ul li:hover {
+    border-bottom: 4px solid #FFCE22;
+    font-weight: 600;
+    cursor: pointer;
+}
+#navbutton {
+    background-color: transparent;
+    border: 0;
+    margin-right: 30px;
+    margin-top: 30px;
+    display: none;
+}
+#navbutton:hover {
+    cursor: pointer;
+}
+.ham {
+    height: 3px;
+    width: 27px;
+    margin-bottom: 7px;
+    background-color: #ffffff;
+}
+.goback {
+    transform: rotate(45deg);
+    color: gray;
+    font-size: 50px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    display: none;
+}
+.goback:hover {
+    color: #bebebe;
+    cursor: pointer;
+}
+.heading {
+    text-align: center;
+    margin: 80px 0 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    color: rgb(9, 168, 168);
+    text-transform: uppercase;
+}
+.heading-text {
+    width: 50vw;
+    text-align: center;
+    position: absolute;
+    left: 25vw;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+.heading-button { 
+    position: absolute;
+    top: 45vh;
+    left: 40vw;
+    filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.5));
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 20px;
+    font-weight: 600;
+    /* line-height: 30px; */
+    letter-spacing: 1px;
+    color: #e69d00;
+    border: 2px solid #e69d00;
+    box-sizing: border-box;
+    backdrop-filter: blur(20px);
+    padding: 7px 22px;
+}
+.heading-button:hover {
+    cursor: pointer;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.4s;
+}
+#upload {
+    max-width: 100vw;
+    height: 100vh;
+    /* position: relative; */
+    padding: 13vh 7vw;
+    box-sizing: border-box;
+}
+.upload-box {
+    width: 100%;
+    height: 100%;
+    background: #222222;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.form {
+  display: flex;
+  justify-content: space-around;
+}
+ul {
+    margin: 0;
+}
+.yellow-box {
+    margin: 0;
+    width: 30%;
+    min-height: 45vh;
+    /* opacity: 0.7; */
+    border: 8px dashed #e69d00;
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-image-icon {
+	width: 40%;
+	height: auto;
+}
+input[type="file"] {
+	background: rgba(255, 255, 255, 0.07);
+	border: 2px solid darkcyan;
+	box-sizing: border-box;
+	backdrop-filter: blur(10px);
+	letter-spacing: 1px;
+	color: darkcyan;
+	opacity: 0.8;
+	font-size: 15px;
+	padding: 8px 15px;
+}
+.upload-text {
+	width: 50%;
+	position: relative;
+    padding: 0;
+/*     margin: 60px 0 0 -20px; */
+}
+.upload-text ul li {
+    color: white;
+    font-size: 20px;
+    margin: 0 0 25px 0;
+    font-weight: 300;
+}
+.submit-button {
+    background: rgba(255, 255, 255, 0.07);
+    border: 2px solid #e69d00;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    letter-spacing: 1px;
+    color: #e69d00;
+    opacity: 0.8;
+    font-size: 18px;
+    padding: 8px 15px;
+    margin: 10px;
+    position: absolute;
+    left: 35%;
+}
+.submit-button:hover {
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+/********** SLIDER **********/
+#info {
+    padding: 0 60px 50px 60px;
+}
+
+/********** CONTACT INFO **********/
+#contact {
+    background-color: #222222;
+    text-align: center;
+    color: black;
+}
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 45px;
+    color: white;
+    padding: 40px;
+    margin: 0;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+.contact-cards {
+    display: flex;
+    justify-content: center;
+}
+#parth, #dhruv, #palka {
+    margin: 60px;
+    margin-top: 20px;
+    width: 20%;
+    background: #bebebe;
+    box-shadow: 0px 4px 15px 5px rgba(255, 255, 255, 0.25);
+    text-align: center;
+}
+.photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 30px 0;
+}
+#palka .photo{
+    background-size: cover;
+}
+hr {
+    border: 1px solid darkcyan;
+}
+.card-container {
+    padding: 20px;
+}
+.card-container h6 {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin: 0 0 30px 0;
+}
+.gicon, .licon {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-container span {
+    padding: 10px;
+}
+.github-icon, .linkedin-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+.end {
+    border-color: transparent;
+}
+footer {
+    max-width: 100%;
+    background-color: #222222;
+    padding: 1px 15vw 25px 15vw;
+    text-align: center;
+}
+footer p {
+    font-weight: 300;
+    margin-top: 30px;
+}
+  
+  
+/********** MEDIA QUERIES **********/
+@media only screen and (min-width: 1401px) and (max-width: 1920px) {
+    .heading {
+        font-size: 5vw;
+        margin: 10px 0 10px 0;
+    }
+    .heading-text {
+        font-size: 1.75vw;
+        width: 65vw;
+        left: 18vw;
+    }
+    .heading-button {
+        font-size: 2vw;
+        top: 50vh;
+        left: 38vw;
+        padding: 12px 25px;
+    }
+    .logo {
+        margin: 30px;
+    }
+    .logo img{
+        width: 10vw;
+        height: 15vh;
+    }
+    .navbar ul li {
+        list-style: none;
+        margin: 45px 5vw;
+        font-size: 2.5vw;
+        text-decoration: none;
+        padding: 5px;
+    }
+    .form {
+        padding: 50px;
+    }
+    .yellow-box {
+        width: 37%;
+        min-height: 48vh;
+        margin: 0 40px;
+    }
+    .upload-text {
+        width: 55%;
+        position: relative;
+        padding: 0;
+        margin: 5vh 0 0 -20px;
+    }
+    .upload-text ul li {
+        font-size: 2vw;
+        margin: 0 0 25px 0;
+    }
+    .submit-button {
+        font-size: 1.7vw;
+        padding: 12px 20px;
+        margin: 5vh 60px;
+        position: absolute;
+        left: 32%;
+    }
+    h2 {
+        font-size: 80px;
+        margin-bottom: 50px;
+    }
+    .photo {
+        width: 150px;
+        height: 150px;
+    }
+    .contact-cards h6 {
+        font-size: 30px;
+    }
+    .contact-cards p, .contact-cards span, footer p {
+        font-size: 30px;
+    }
+    .github-icon, .linkedin-icon {
+        width: 30px;
+        height: 30px;
+        margin: 0 5px;
+    }
+}
+/* @media only screen and (min-width: 1201px) and (max-width: 1400px) {
+    .heading-button {
+        left: 35vw;
+    }
+    .yellow-box {
+        width: 40%;
+    }
+    .upload-text {
+        margin: 0 0 0 -20px;
+    }
+    #parth, #dhruv, #palka {
+        margin: 40px;
+        width: 30%;
+    }
+} */
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+    .yellow-box {
+        width: 35%;
+        height: 60%;
+    }
+    #parth, #dhruv, #palka {
+        margin: 45px;
+    }
+}
+@media only screen and (min-width: 901px) and (max-width: 992px) {
+    #parth, #dhruv, #palka {
+        margin: 40px;
+        width: 25%;
+    } 
+}
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+    .yellow-box {
+        width: 40%;
+        height: 60%;
+    }
+    .upload-text ul li{
+        font-size: 17px;
+    }
+    #parth, #dhruv, #palka {
+        margin: 30px;
+        width: 24%;
+    }
+    .heading-button {
+        left: 35vw;
+    }
+}
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .yellow-box {
+        width: 38%;
+        height: 50%;
+    }
+    .upload-text ul li{
+        font-size: 15px;
+    }
+    .submit-button {
+        margin: 0;
+    }
+    #parth, #dhruv, #palka {
+        margin: 18px;
+        width: 27%;
+    }
+    .heading {
+        font-size: 50px;
+        margin: 50px 0 0 0;
+    }
+    .heading-text {
+        width: 60vw;
+        left: 20vw;
+    }
+    .heading-button {
+        left: 32vw;
+    }
+}
+@media only screen and (max-width: 600px) {
+    #upload {
+        padding: 9vh 7vw;
+    }
+    .form {
+        flex-direction: column;
+        align-items: center;
+    }
+    .yellow-box{
+        width: 40%;
+        min-height: 28vh !important;
+        margin-left: 0;
+        margin-top: -20px;
+    }
+    .upload-text {
+        width: 90%;
+        margin: 20px;
+    }
+    .upload-text ul li {
+        margin: 0 0 12px 0;
+    }
+    .submit-button {
+        left: 40%;
+    }
+    .heading {
+        font-size: 40px;
+        margin: 50px 0 20px 0;
+    }
+    .heading-text {
+        font-size: 16px;
+        width: 70%;
+        left: 15vw;
+    }
+    .heading-button {
+        font-size: 16px;
+        line-height: 26px;
+        left: 30vw;
+    }
+    h2 {
+        font-size: 35px;
+    }
+    #info {
+        padding: 0 40px 50px 40px;
+    }
+    .contact-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    #parth, #dhruv, #palka {
+        margin: 25px;
+        width: 60%;
+    }
+    .everything {
+        background-size: 250%;
+    }
+    #navbar-ul {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-image: linear-gradient(to bottom left, rgba(1,1,1,1),rgba(1,1,1,0.9),rgba(1,1,1,0.8),rgba(1,1,1,0.6));
+        visibility: hidden;
+    }
+    @keyframes slide {
+        from {
+            width: 0;
+        }		
+        to {
+            width: 100%;
+        }
+    }
+    @keyframes slide-reverse {
+        from {
+            width: 100%;
+        }		
+        to {
+            width: 0;
+        }
+    }
+    .goback {
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        display: flex;
+        z-index: 1;
+    }
+    #navbutton {
+        display: inline;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .heading {
+        font-size: 30px;
+    }
+    .upload-text ul li {
+        margin: 0 0 20px 0;
+    }
+    .heading-button {
+        font-size: 14px;
+        line-height: 23px;
+        left: 25vw;
+    }
+    .yellow-box{
+        width: 40%;
+        min-height: 18vh !important;
+    }
+    .submit-button {
+        left: 35%;
+        font-size: 15px;
+    }
+    h2 {
+        font-size: 25px;
+        padding: 20px;
+    }
+}

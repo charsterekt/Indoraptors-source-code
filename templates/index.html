@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Indorpators</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description"
+        content="A robust AI powered image identification tool for birds of prey found in and around the Indian subcontinent">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yrsa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/styles.css" type="text/css">
+    <link rel="stylesheet" href="../static/Responsive-Slider/css/style.css" type="text/css">
+    <link rel="stylesheet" href="../static/Responsive-Slider/css/lightslider.css" type="text/css">
+
+    <script src="../static/jquery-3.5.1.min.js"></script>
+    <script src="../static/Responsive-Slider/js/lightslider.js"></script>
+
+    <link rel="icon" type="image/ico" href="../static/favicon.ico">
+
+</head>
+
+<body>
+    <!-- PRE LOADER -->
+    <div class="loader-wrapper" style="display: none;">
+        <section class="preloader">
+            <div class="bird">
+                <div class="bird_part bird_part--tongue"></div>
+                <div class="bird_part bird_part--hair"></div>
+                <div class="bird_part bird_part--neck"></div>
+                <div class="bird_part bird_part--head"></div>
+                <div class="bird_part bird_part--eye"></div>
+                <div class="bird_part bird_part--beak"></div>
+            </div>
+        </section>
+    </div>
+    <!-- END -->
+
+
+    <div class="everything">
+        <div class="main">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="../static/logo.png">
+                </div>
+                <ul id="navbar-ul">
+                    <div onclick="hidemenu()" class="goback">+</div>
+
+                    <a href="#">
+                        <li>Home</li>
+                    </a>
+                    <a href="#info">
+                        <li>Info</li>
+                    </a>
+                    <a href="#contact">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+                <div onclick="showmenu()" id="navbutton" type="button">
+                    <div class="ham"></div>
+                    <div class="ham"></div>
+                    <div class="ham"></div>
+                </div>
+            </nav>
+
+            <div id="landing">
+                <h1 class="heading">Birds of Prey</h1>
+                <p class="heading-text"> The Indoraptors project is an AI powered tool capable of identifying 109 unique species of raptors found in and around the Indian subcontinent. Simply upload an image and wait!
+                    The AI has been trained primarily on adult male specimens, and as a result female or juvenile entries may not be entirely accurate.
+                </p>
+                <a href="#upload"><button class="heading-button">FIND YOUR BIRD</button></a>
+            </div>
+        </div>
+
+
+        <!-- YELLOW UPLOAD BOX -->
+
+        <div id="upload">
+            <div class="upload-box">
+                <form class="form" action="" method="POST" enctype="multipart/form-data">
+                    <div class="drop-zone yellow-box">
+                        <img class="add-image-icon" src="../static/add photo icon.png"></img>
+                        <input type="file" name="file" class="drop-zone__input">
+                    </div>
+
+
+                    <div class="upload-text">
+                        <ul>
+                            <li>Click or drag an image to upload</li>
+                            <li>Supported file formats include .jpg, .png and .jpeg images</li>
+                            <li>Image file size is limited to 16 MB</li>
+                            <li>You can only choose one image at a time</li>
+                        </ul>
+                        <input class="submit-button" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="info">
+            <div class="inside">
+                <h2>Endangered Species Spotlight</h2>
+
+
+                <div class="container">
+                    <!--slider------------------->
+                    <ul id="autoWidth" class="cs-hidden">
+                        <!--1------------------------------>
+                        <li class="item-a">
+                            <a href="https://en.wikipedia.org/wiki/Andaman_serpent_eagle" target="_blank">
+                                <div class="box">
+                                    <img class="model"
+                                        src="../static/Responsive-Slider/carousel-img/Andaman serpent eagle.jpg">
+                                    <div class="details">
+                                        <p>Andaman Serpent Eagle</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--2------------------------------>
+                        <li class="item-a">
+                            <a href="https://en.wikipedia.org/wiki/Egyptian_vulture" target="_blank">
+                                <div class="box">
+                                    <img class="model"
+                                        src="../static/Responsive-Slider/carousel-img/Egyptian vulture.jpg">
+                                    <div class="details">
+                                        <p>Egyptian Vulture</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--3------------------------------>
+                        <li class="item-a">
+                            <a href="https://en.wikipedia.org/wiki/Forest_owlet" target="_blank">
+                                <div class="box">
+                                    <img class="model" src="../static/Responsive-Slider/carousel-img/Forest owlet.jpeg">
+                                    <div class="details">
+                                        <p>Forest Owlet</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--4------------------------------>
+                        <li class="item-a">
+                            <a href="https://en.wikipedia.org/wiki/Indian_vulture" target="_blank">
+                                <div class="box">
+                                    <img class="model"
+                                        src="../static/Responsive-Slider/carousel-img/Indian vulture.jpg">
+                                    <div class="details">
+                                        <p>Indian Vulture</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--5------------------------------>
+                        <li class="item-a">
+                            <a href="https://en.wikipedia.org/wiki/Legge%27s_hawk-eagle" target="_blank">
+                                <div class="box">
+                                    <img class="model"
+                                        src="../static/Responsive-Slider/carousel-img/Legge's hawk-eagle.jpg">
+                                    <div class="details">
+                                        <p>Legge's Hawk-Eagle</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--6------------------------------>
+                        <li class="item-a">
+                            <a href="https://en.wikipedia.org/wiki/Pallas%27s_fish_eagle" target="_blank">
+                                <div class="box">
+                                    <img class="model"
+                                        src="../static/Responsive-Slider/carousel-img/Pallas's fish eagle.jpg">
+                                    <div class="details">
+                                        <p>Pallas's Fish Eagle</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--7------------------------------>
+                        <li class="item-a">
+                            <a href="https://en.wikipedia.org/wiki/Red-headed_vulture" target="_blank">
+                                <div class="box">
+                                    <img class="model"
+                                        src="../static/Responsive-Slider/carousel-img/Red-headed vulture.jpg">
+                                    <div class="details">
+                                        <p>Red-Headed Vulture</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--8------------------------------>
+                        <li class="item-a">
+                            <a href="https://en.wikipedia.org/wiki/Slender-billed_vulture" target="_blank">
+                                <div class="box">
+                                    <img class="model"
+                                        src="../static/Responsive-Slider/carousel-img/Slender-billed vulture.jpg">
+                                    <div class="details">
+                                        <p>Slender-Billed Vulture</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--9------------------------------>
+                        <li class="item-a">
+                            <a href="https://en.wikipedia.org/wiki/Steppe_eagle" target="_blank">
+                                <div class="box">
+                                    <img class="model" src="../static/Responsive-Slider/carousel-img/Steppe eagle.jpg">
+                                    <div class="details">
+                                        <p>Steppe Eagle</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--10------------------------------>
+                        <li class="item-a">
+                            <a href="https://en.wikipedia.org/wiki/White-rumped_vulture" target="_blank">
+                                <div class="box">
+                                    <img class="model"
+                                        src="../static/Responsive-Slider/carousel-img/White-rumped vulture.jpg">
+                                    <div class="details">
+                                        <p>White-Rumped Vulture</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact">
+            <h2>Meet the creators</h2>
+            <div class="contact-cards">
+                <div id="parth">
+                    <div class="card-container">
+                        <img class="photo" src="static/parth.jpg">
+                        <h6>PARTH</h6>
+                        <p>Model training and fine-tuning</p>
+                    </div>
+                    <hr>
+                    <div class="card-container">
+                        <div class="gicon">
+                            <img class="github-icon" src="../static/github icon.png"></img>
+                            <span><a href="https://github.com/Moon-Spawn" target="_blank">Moon-Spawn</a></span>
+                        </div>
+                        <div class="licon">
+                            <img class="linkedin-icon" src="../static/linkedin icon.png"></img>
+                            <span><a href="https://www.linkedin.com/in/parth-vyas-b57852202/"
+                                    target="_blank">Parth</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="dhruv">
+                    <div class="card-container">
+                        <img class="photo" src="static/dhruv.png">
+                        <h6>DHRUV</h6>
+                        <p>Backend, dataset building and cleaning
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="card-container">
+                        <div class="gicon">
+                            <img class="github-icon" src="../static/github icon.png"></img>
+                            <span><a href="https://github.com/charsterekt" target="_blank">charsterekt</a></span>
+                        </div>
+                        <div class="licon">
+                            <img class="linkedin-icon" src="../static/linkedin icon.png"></img>
+                            <span><a href="https://www.linkedin.com/in/dhruv-krishnamachari-3a3a071a2/"
+                                    target="_blank">Dhruv</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="palka">
+                    <div class="card-container">
+                        <img class="photo" src="static/palka.jpeg">
+                        <h6>PALKA</h6>
+                        <p>Frontend, design and integration</p>
+                    </div>
+                    <hr>
+                    <div class="card-container">
+                        <div class="gicon">
+                            <img class="github-icon" src="../static/github icon.png"></img>
+                            <span><a href="https://github.com/palkadhirawani" target="_blank">palkadhirawani</a></span>
+                        </div>
+                        <div class="licon">
+                            <img class="linkedin-icon" src="../static/linkedin icon.png"></img>
+                            <span><a href="https://www.linkedin.com/in/palka-dhirawani-3619a21b3/"
+                                    target="_blank">Palka</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="end">
+        <footer>
+            <p>Reach out to us at indoraptors.team@gmail.com</p>
+            <p>Indoraptors is a labour of love and effort, however it is only as good as the data available to it. If
+                you would like to see an improvement in the model or have some images you would be willing to share to
+                help train our model, please contact us. We look forward to hearing from you!</p>
+        </footer>
+    </div>
+
+
+    <script src="../static/hamburger.js"></script>
+
+    <script src="../static/Responsive-Slider/js/script.js" type="text/javascript"></script>
+
+    <!-- DRAG AND DROP IMAGE -->
+    <script src="static/main.js"></script>
+
+    <!-- PROGRESS LOADER -->
+    <script>
+        $(".form").submit(function () {
+            $(".loader-wrapper").fadeIn("fast");
+            $(".everything").hide();
+        });
+    </script>
+</body>
+
+</html>

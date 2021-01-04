@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Indoraptors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description"
+    content="A robust AI powered image identification tool for birds of prey found in and around the Indian subcontinent">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yrsa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="static/output.css">
+  <script src="static/jquery-3.5.1.min.js"></script>
+
+  <link rel="icon" type="image/ico" href="../static/favicon.ico">
+</head>
+
+<body>
+  <!-- PRE LOADER -->
+  <div class="loader-wrapper">
+    <div class="preloader">
+      <div class="bird">
+        <div class="bird_part bird_part--tongue"></div>
+        <div class="bird_part bird_part--hair"></div>
+        <div class="bird_part bird_part--neck"></div>
+        <div class="bird_part bird_part--head"></div>
+        <div class="bird_part bird_part--eye"></div>
+        <div class="bird_part bird_part--beak"></div>
+      </div>
+    </div>
+  </div>
+  <!-- END -->
+  <div class="everything">
+    <div class="extra">
+        <div class="gray-box">
+            <div class="first">
+                <img src="{{bird1}}">
+                <div class="first-text">
+                    <h4>{{guess1}}</h4>
+                    <h4 class="confidence">{{conf1}}</h4>
+                    <p>{{info}}</p>
+                    <div class="buttons">
+                      <a href="{{wiki1}}" target="_blank">
+                        <button class="learn">LEARN MORE</button>
+                      </a>
+                      <a href="{{url_for('index', _anchor='upload')}}">
+                        <button class="another">PREDICT ANOTHER</button>
+                      </a>
+                    </div>
+                </div>
+            </div>
+            <h3>Not your bird? How about these?</h3>
+            <div class="others">
+                <div class="idk">
+                    <div class="second">
+                      <a href="{{wiki2}}" target="_blank">
+                        <img src="{{bird2}}">
+                      </a>
+                      <h5>{{guess2}}</h5>
+                      <h6>{{conf2}}</h6>
+                    </div>
+                    <div class="third">
+                      <a href="{{wiki3}}" target="_blank">
+                        <img src="{{bird3}}">
+                      </a>
+                      <h5>{{guess3}}</h5>
+                      <h6>{{conf3}}</h6>
+                    </div>
+                </div>
+                <p class="no-result">** If the results are far from what you expected, try cropping the image and centering the bird as its focus. This should help with the model’s accuracy.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(".everything").hide();
+    $(window).on("load", function(){
+      $(".loader-wrapper").fadeOut("fast");
+      $(".everything").fadeIn("slow");
+    });
+  </script>
+</body>
+
+</html>
