@@ -10,3 +10,6 @@ adult male specimens and does not include female and juvenile samples.
 
 The backend was written in Flask, chosen for being simple and lightweight; the ideal framework to deploy a model with. A simple 2-page design ensures smooth functioning
 and a simple user experience.
+
+Due to GitHub's file size restriction, the main AI model file has not been included in this repository, however for testing purposes it can be found at this link:
+https://drive.google.com/file/d/1RtS9oANjgeUiF5EnOXdfd705kziRnbDL/view?usp=sharing
